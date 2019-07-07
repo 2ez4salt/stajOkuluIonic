@@ -1,14 +1,58 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Staj Okulu Home Page  Başlığı
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <ion-card style="border-radius:25px">
+        <ion-card-header>
+          Giriş Yap
+        </ion-card-header>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>
+                  <ion-label fixed>Kullanıcı Adı</ion-label>
+                  <ion-input [(ngModel)]="username" type="text" value=""></ion-input>
+                </ion-item>          
+                <ion-item>
+                  <ion-label fixed>Parola</ion-label>
+                  <ion-input [(ngModel)]="passwd"></ion-input>
+                </ion-item>              
+              </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <button [disabled]=true style="border-radius:25px" color="secondary" (click)="girisAction(username,passwd)" ion-button full>Giriş</button>
+<hr><hr><br>
+
+      <ion-card style="border-radius:25px">
+        <ion-card-header>
+          <ion-card-title>
+            Todo App
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+              <ion-label fixed>Görev Ekle</ion-label>
+              <ion-input [(ngModel)]="task" type="text"></ion-input>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <button [disabled]=!task style="border-radius:25px" color="danger" (click)="addTask(task)" ion-button full>Görev Ekle</button>
+      <ion-card color="secondary" style="border-radius:25px">
+        <ion-card-header>
+          <ion-card-title>
+            Görev Listesi
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div *ngFor="let item of gorevListesi;let i = index">
+            {{i+1}}-{{item}}
+            <hr>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      
 </ion-content>
